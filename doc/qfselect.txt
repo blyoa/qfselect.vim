@@ -1,0 +1,105 @@
+*qfselect.txt*   A window selector for items of the quickfix or location list.
+
+Author: blyoa <blyoa110@gmail.com>
+License: MIT license
+
+
+==============================================================================
+CONTENTS                                                     *qfselect-contents*
+
+Introcution                |qfselect-introduction|
+Usage                      |qfselect-usage|
+Mappings                   |qfselect-mappings|
+  Examples                   |qfselect-mapping-examples|
+
+
+==============================================================================
+INTRODUCTION                                             *qfselect-introduction*
+
+*qfselect.vim* is a window selector to open items of the quickfix or location
+list in the window that you want.
+
+
+==============================================================================
+USAGE                                                           *qfselect-usage*
+
+You can use this plugin by defining |qfselect-mappings| in your vimrc.
+
+
+==============================================================================
+MAPPINGS                                                     *qfselect-mappings*
+
+*<Plug>(qfselect-select:edit)*
+*<Plug>(qfselect-select:split)*
+*<Plug>(qfselect-select:vsplit)*
+	Select a window and open the currently selected item of the quickfix
+	or location list in the selected window by |:edit|, |:split|, or
+	|:vsplit| respectively. The direction where the item is opened depends
+	on |:splitbelow| or |:splitright|.
+
+*<Plug>(qfselect-select:edit:keep-cursor)*
+*<Plug>(qfselect-select:split:keep-cursor)*
+*<Plug>(qfselect-select:vsplit:keep-cursor)*
+	Select a window, open the currently selected item of the quickfix or
+	location list in the selected window by |:edit|, |:split|, or
+	|:vsplit| respectively. After the item is opened, the cursor goes back
+	to the window where this mapping is called, which is the quickfix or
+	location list window. The direction where the item is opened depends
+	on |:splitbelow| or |:splitright|.
+
+*<Plug>(qfselect-select:above)*
+*<Plug>(qfselect-select:below)*
+*<Plug>(qfselect-select:left)*
+*<Plug>(qfselect-select:right)*
+	Select a window, open the currently selected item of the quickfix or
+	location list in the selected window by according to the direction
+	described in the mapping names.
+
+*<Plug>(qfselect-select:above:keep-cursor)*
+*<Plug>(qfselect-select:below:keep-cursor)*
+*<Plug>(qfselect-select:left:keep-cursor)*
+*<Plug>(qfselect-select:right:keep-cursor)*
+	Select a window, open the currently selected item of the quickfix or
+	location list in the selected window by according to the direction
+	described in the mapping names. After the item is opened, the cursor
+	goes back to the window where this mapping is called, which is the
+	quickfix or location list window.
+
+
+------------------------------------------------------------------------------
+Examples                                             *qfselect-mapping-examples*
+
+This is an example of mapping settings.
+>
+	augroup qfselect_init
+	  function! s:set_qfselect_keymaps() abort
+	    nmap <buffer> si <Plug>(qfselect-select:edit)
+	    nmap <buffer> sI <Plug>(qfselect-select:edit:keep-cursor)
+
+	    nmap <buffer> ss <Plug>(qfselect-select:split)
+	    nmap <buffer> sS <Plug>(qfselect-select:split:keep-cursor)
+
+	    nmap <buffer> sv <Plug>(qfselect-select:vsplit)
+	    nmap <buffer> sV <Plug>(qfselect-select:vsplit:keep-cursor)
+	
+	    nmap <buffer> sh <Plug>(qfselect-select:left)
+	    nmap <buffer> sH <Plug>(qfselect-select:left:keep-cursor)
+	
+	    nmap <buffer> sl <Plug>(qfselect-select:right)
+	    nmap <buffer> sL <Plug>(qfselect-select:right:keep-cursor)
+	
+	    nmap <buffer> sk <Plug>(qfselect-select:above)
+	    nmap <buffer> sK <Plug>(qfselect-select:above:keep-cursor)
+	
+	    nmap <buffer> sj <Plug>(qfselect-select:below)
+	    nmap <buffer> sJ <Plug>(qfselect-select:below:keep-cursor)
+	  endfunction
+	
+	  autocmd!
+	  autocmd FileType qf call s:set_qfselect_keymaps()
+	augroup END
+<
+If mappings of the quickfix or location list window conflict with some global
+mappings of yours, |map-nowait| may help.
+
+vim:tw=78:colorcolumn=78:ts=8:ft=help:norl:noet:fen:fdl=0:
