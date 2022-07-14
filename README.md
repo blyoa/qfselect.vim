@@ -7,6 +7,8 @@ qfselect.vim
 
 This is a plugin to select a window to open items of the quickfix or the location list.
 
+![Demo](https://user-images.githubusercontent.com/9126033/179100532-b3851c0f-8a76-4153-b84c-4b8efb1a001d.gif)
+
 
 Installation:
 -------------
