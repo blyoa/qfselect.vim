@@ -3,7 +3,7 @@ let s:WindowLocator = vital#qfselect#import('App.WindowLocator')
 
 function s:is_quickfix(wid) abort
   let info = getwininfo(a:wid)
-  return !empty(info) && info[0].quickfix ==# 1
+  return !empty(info) && info[0].quickfix ==# 1 && info[0].loclist !=# 1
 endfunction
 
 function s:is_loclist(wid) abort
