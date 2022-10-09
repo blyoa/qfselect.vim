@@ -69,7 +69,7 @@ scripts are originally implemented in the following repositories:
 
 - [vim-jp/vital.vim](https://github.com/vim-jp/vital.vim) (NYSL)
   - this scripts are located under `autoload/vital/_qfselect` except to `autoload/vital/_qfselect/App`
-- [lambdalisue/vital-Whisky](https://github.com/lambdalisue/vital-Whisky) (MIT)
+- [lambdalisue/vital-Whisky](https://github.com/lambdalisue/vital-Whisky) ([MIT](https://github.com/lambdalisue/vital-Whisky/blob/master/LICENSE))
   - this scripts are located under `autoload/vital/_qfselect/App`
 
 
